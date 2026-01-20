@@ -1,0 +1,26 @@
+name: Verilog Simulation
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Install Icarus Verilog
+      run: sudo apt-get update && sudo apt-get install -y iverilog
+
+    - name: Compile Verilog files
+      run: |
+        iverilog -o sim.out bit_32_pipelining.v bit_32_pipelining_tb.v
+
+    - name: Run Simulation
+      run: |
+        vvp sim.out
