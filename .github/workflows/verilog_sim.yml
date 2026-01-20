@@ -11,16 +11,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Install Icarus Verilog
-      run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
 
-- name: Compile Verilog files
-  run: |
-    iverilog -o sim.out src/bit_32_pipelining.v tb/bit_32_pipelining_tb.v
+      - name: Compile Verilog files
+        run: |
+          iverilog -o sim.out src/bit_32_pipelining.v tb/bit_32_pipelining_tb.v
 
-    - name: Run Simulation
-      run: |
-        vvp sim.out
+      - name: Run Simulation
+        run: |
+          vvp sim.out
+
