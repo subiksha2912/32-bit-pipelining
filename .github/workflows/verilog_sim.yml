@@ -17,9 +17,9 @@ jobs:
     - name: Install Icarus Verilog
       run: sudo apt-get update && sudo apt-get install -y iverilog
 
-    - name: Compile Verilog files
-      run: |
-        iverilog -o sim.out bit_32_pipelining.v bit_32_pipelining_tb.v
+- name: Compile Verilog files
+  run: |
+    iverilog -o sim.out src/bit_32_pipelining.v tb/bit_32_pipelining_tb.v
 
     - name: Run Simulation
       run: |
