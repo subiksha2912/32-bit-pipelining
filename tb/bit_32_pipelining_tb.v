@@ -2,7 +2,7 @@ module bit_32_pipelining_tb;
 reg clk;
 reg [31:0] in1,in2,in3,in4;
 wire [63:0] out_32;
-bit_32_pipelining dut(.clk(clk),.rst(rst),.in1(in1),.in2(in2),.in3(in3),.in4(in4),.out_32(out_32));
+bit_32_pipelining dut(.clk(clk),.in1(in1),.in2(in2),.in3(in3),.in4(in4),.out_32(out_32));
 initial begin
 clk = 0;
 forever #5 clk = ~clk;
